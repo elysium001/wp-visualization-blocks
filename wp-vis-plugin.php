@@ -24,13 +24,13 @@ define('WP_VIS_PLUGIN_VERSION', '1.0.0');
 // load composer autoload
 require_once WP_VIS_PLUGIN_DIR . 'vendor/autoload.php';
 
-// load files.
-require_once WP_VIS_PLUGIN_DIR . 'src/d3/d3-block.php';
-require_once WP_VIS_PLUGIN_DIR . 'src/plotly/plotly-block.php';
-// require_once WP_VIS_PLUGIN_DIR . 'src/inc/functions.php';
+use WP_VIS_PLUGIN\Plotly_Block;
+use WP_VIS_PLUGIN\D3_Block;
+use WP_VIS_PLUGIN\ChartJS_Block;
 
 // load plugin blocks
 add_action('init', function () {
     new D3_Block();
     new Plotly_Block();
+    new ChartJS_Block();
 });

@@ -1,0 +1,11 @@
+{
+    "apiVersion": 2,
+    "title": "Omar's: Chart JS Block (ESNext)",
+    "name": "wp-visualization-plugins/chartjs-bar-block",
+    "keywords": [ "fantastic" ],
+    "category": "layout",
+    "icon": "universal-access-alt",
+    "editorScript": "file:./../../build/chartjs-index.js",
+    "viewScript": [ "file:./../../build/chartjs-view.js", "chartjs-component-view-script" ],
+    "render": "file:./render-cb.php"
+}

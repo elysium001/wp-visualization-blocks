@@ -9,10 +9,15 @@
       },
     "license": "MIT",
     "autoload": {
-        "psr-4": {
-            "Omar\\WP_VIS_PLUGIN\\": "src/"
-        }
-    },
+		"classmap": [
+			"src/"
+		]
+	},
+    "autoload-dev": {
+		"psr-4": {
+			"WP_VIS_PLUGIN\\Tests\\": "tests/"
+		}
+	},
     "scripts": {
         "phpcs": "vendor/bin/phpcs",
         "phpcbf": "vendor/bin/phpcbf",

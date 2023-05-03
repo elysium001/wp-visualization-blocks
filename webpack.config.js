@@ -9,6 +9,8 @@ module.exports = {
         'd3-view': './src/d3/views/bar.js',
         'plotly-index': './src/plotly/index.js',
         'plotly-view': './src/plotly/views/bar.js',
+        'chartjs-index': './src/chartjs/index.js',
+        'chartjs-view': './src/chartjs/views/bar.js',
     },
     output: {
         ...wpConfig.output,
