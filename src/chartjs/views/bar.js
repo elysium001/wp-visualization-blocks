@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // get the root element.
     const root = document.getElementById('chartJS-bar-root');
 
+    // get props from the root element.
+    const props = Object.assign({}, root.dataset);
+
     // render the element.
     ReactDOM.render(element, root);
 }   );

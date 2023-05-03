@@ -2,18 +2,41 @@
  * WordPress dependencies
  */
 import { registerBlockType } from '@wordpress/blocks';
+import { __ } from '@wordpress/i18n';
+import {
+    useBlockProps,
+    ColorPalette,
+    InspectorControls,
+} from '@wordpress/block-editor';
+import { TextControl } from '@wordpress/components';
 
 import { ChartJSBarChart } from '../components/bar';
 
 // Register the block
-registerBlockType( 'wp-visualization-plugins/chartjs-bar-block', {
-    edit: () => {
-        return <> 
-            <p> Hello world (from the editor)</p>
+registerBlockType('wp-visualization-plugins/chartjs-bar-block', {
+    attributes: {
+        title: {
+            type: 'string',
+            default: 'ChartJS Bar Chart 123',
+        },
+    },
+    edit: (props) => {
+        const { title } = props.attributes;
 
-            {/* Account for render cb implementation. */}
+        return (<div {...useBlockProps()}>
+            <InspectorControls key="setting">
+                <div id="gutenpride-controls">
+                    <fieldset>
+                        <legend className="blocks-base-control__label">
+                            {__('Title', 'gutenpride')}
+                        </legend>
+                        <TextControl value={title} onChange={(value) => props.setAttributes({ title: value })} />
+                    </fieldset>
+                </div>
+            </InspectorControls>
+            <p>{title}</p>
             <ChartJSBarChart />
-        </>;
+        </div>)
     },
     save: () => null,
-} );
+});
