@@ -1,0 +1,11 @@
+{
+    "apiVersion": 2,
+    "title": "Omar's: Plotly Block (ESNext)",
+    "name": "wp-visualization-plugins/plotly-bar-block",
+    "keywords": [ "fantastic" ],
+    "category": "layout",
+    "icon": "universal-access-alt",
+    "editorScript": "file:./../../build/plotly-index.js",
+    "viewScript": [ "file:./../../build/plotly-view.js", "plotly-component-view-script" ],
+    "render": "file:./render-cb.php"
+}
