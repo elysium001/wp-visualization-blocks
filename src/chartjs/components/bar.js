@@ -51,6 +51,9 @@ export const data = {
   ],
 };
 
-export function ChartJSBarChart() {
-  return <Bar options={options} data={data} />;
+export function ChartJSBarChart(props) {
+  return <>
+    <h3>{props?.title}</h3>
+    <Bar options={options} data={data} />
+  </>;
 }
