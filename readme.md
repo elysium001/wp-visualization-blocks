@@ -17,3 +17,5 @@ This is a demo WordPress plugin that adds a block to the Gutenberg editor that a
 3. Run `npm run build` to build the plugin
 4. Activate the plugin in the WordPress admin
 
+## Usage <!-- Subtitle -->
+![GIF of the plugin in the editor](./wp-vis-block-demo.gif)
