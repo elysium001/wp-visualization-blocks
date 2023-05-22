@@ -2,18 +2,18 @@
  * WordPress dependencies
  */
 import { registerBlockType } from '@wordpress/blocks';
-
-import PlotlyBarChart from '../components/bar';
+import { useBlockProps } from '@wordpress/block-editor';
+import '../views/bar';
 
 // Register the block
 registerBlockType( 'wp-visualization-plugins/plotly-bar-block', {
     edit: () => {
-        return <> 
-            <p> Hello world (from the editor)</p>
+        return <div {...useBlockProps()}> 
+            <p> Hello world (PlotlyBarChart component from the editor)</p>
 
             {/* Account for render cb implementation. */}
-            <PlotlyBarChart />
-        </>;
+            <plotly-bar />
+        </div>;
     },
     save: () => null,
 } );

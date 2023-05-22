@@ -5,19 +5,18 @@ import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 import {
     useBlockProps,
-    ColorPalette,
     InspectorControls,
 } from '@wordpress/block-editor';
 import { TextControl } from '@wordpress/components';
 
-import '../views/bar'
+import '../views/bar';
 
 // Register the block
-registerBlockType('wp-visualization-plugins/chartjs-bar-block', {
+registerBlockType('wp-visualization-plugins/recharts-bar-block', {
     attributes: {
         title: {
             type: 'string',
-            default: 'ChartJS Bar Chart 123',
+            default: 'ReCharts Bar Chart 123',
         },
     },
     edit: (props) => {
@@ -35,7 +34,7 @@ registerBlockType('wp-visualization-plugins/chartjs-bar-block', {
                 </div>
             </InspectorControls>
             <p>{title}</p>
-            <chartjs-bar />
+            <recharts-bar title={title}></recharts-bar>
         </div>)
     },
     save: () => null,

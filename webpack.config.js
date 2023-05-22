@@ -11,6 +11,8 @@ module.exports = {
         'plotly-view': './src/plotly/views/bar.js',
         'chartjs-index': './src/chartjs/index.js',
         'chartjs-view': './src/chartjs/views/bar.js',
+        'recharts-index': './src/recharts/index.js',
+        'recharts-view': './src/recharts/views/bar.js',
     },
     output: {
         ...wpConfig.output,

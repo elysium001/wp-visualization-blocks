@@ -1,15 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import BarChart from '../components/bar';
+import {D3BarChartComponent} from '../components/bar.js'
 
-const element = <BarChart/>;
-
-// on dom ready.
-document.addEventListener('DOMContentLoaded', () => {
-    // get the root element.
-    const root = document.getElementById('d3-bar-root');
-
-    // render the element.
-    ReactDOM.render(element, root);
-}   );
-
+customElements.define('d3-bar', D3BarChartComponent);

@@ -27,10 +27,12 @@ require_once WP_VIS_PLUGIN_DIR . 'vendor/autoload.php';
 use WP_VIS_PLUGIN\Plotly_Block;
 use WP_VIS_PLUGIN\D3_Block;
 use WP_VIS_PLUGIN\ChartJS_Block;
+use WP_VIS_PLUGIN\ReCharts_Block;
 
 // load plugin blocks
 add_action('init', function () {
     new D3_Block();
     new Plotly_Block();
     new ChartJS_Block();
+    new ReCharts_Block();
 });

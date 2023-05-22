@@ -1,0 +1,11 @@
+{
+    "apiVersion": 2,
+    "title": "Omar's: ReCharts JS Block (ESNext)",
+    "name": "wp-visualization-plugins/recharts-bar-block",
+    "keywords": [ "fantastic" ],
+    "category": "layout",
+    "icon": "universal-access-alt",
+    "editorScript": "file:./../../build/recharts-index.js",
+    "viewScript": [ "file:./../../build/recharts-view.js", "recharts-component-view-script" ],
+    "render": "file:./render-cb.php"
+}

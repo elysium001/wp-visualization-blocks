@@ -4,4 +4,4 @@
 $title = $attributes['title'] ?? 'Default Title';
 
 // add dataset to element.
-echo "<chartjs-bar data-title=\"$title\"></chartjs-bar>";
+echo "<recharts-bar data-title=\"$title\"></recharts-bar>";

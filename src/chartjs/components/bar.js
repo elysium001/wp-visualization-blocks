@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -51,9 +50,29 @@ export const data = {
   ],
 };
 
-export function ChartJSBarChart(props) {
+function ChartJSBarChart(props) {
   return <>
     <h3>{props?.title}</h3>
     <Bar options={options} data={data} />
   </>;
+}
+
+const customBarChartStyle = document.createElement('customBarChartStyle');
+customBarChartStyle.innerHTML = `
+  <style>
+    chartjs-bar {
+      display: block;
+    }
+  </style>`;
+
+export class ChartJSBarChartComponent extends HTMLElement {
+  connectedCallback() {
+    const mountPoint = document.createElement('div');
+    // this.attachShadow({ mode: 'open' }).appendChild(mountPoint);
+    this.appendChild(customBarChartStyle);
+    this.appendChild(mountPoint);
+
+    const root = ReactDOM.createRoot(mountPoint);
+    root.render(<ChartJSBarChart {...this.props}></ChartJSBarChart>);
+  }
 }
