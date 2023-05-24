@@ -3,7 +3,7 @@ name: wp-visualization-blocks
 on: 
   push:
     tags:
-    - '*'
+    - 'v*'
 
 jobs:
   build:
@@ -35,8 +35,8 @@ jobs:
         command: install
         args: --no-dev
         
-    - uses: ncipollo/release-action@v1
+    - name: upload binaries to release
+      uses: softprops/action-gh-release@v1
+      if: ${{startsWith(github.ref, 'refs/tags/') }}
       with:
-        artifacts: "*.php,vendor,build"
-        token: ${{ secrets.GITHUB_TOKEN }}
-        allowUpdates: true
+          files: "*.php,vendor/**/*,build/**/*"
