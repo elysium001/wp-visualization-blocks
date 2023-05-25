@@ -22,7 +22,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Build
+    - name: NPM Build
       run: |
         npm install
         npm run build
@@ -34,9 +34,13 @@ jobs:
         composer_version: latest
         command: install
         args: --no-dev
-        
+
+    - name: Package Plugin
+      run: |
+        npm run plugin-zip
+
     - name: upload binaries to release
       uses: softprops/action-gh-release@v1
       if: ${{startsWith(github.ref, 'refs/tags/') }}
       with:
-          files: "*.php,vendor/**/*,build/**/*"
+          files: "wp-visualization-plugins.zip"

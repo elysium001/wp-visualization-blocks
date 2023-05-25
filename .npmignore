@@ -1,0 +1,8 @@
+src/**/*.js
+node_modules
+composer.lock
+composer.json
+package-lock.json
+webpack.config.js
+wp-vis-block-demo.gif
+.github

@@ -12,9 +12,11 @@
     "lint:js": "wp-scripts lint-js",
     "lint:md:docs": "wp-scripts lint-md-docs",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "plugin-zip": "wp-scripts plugin-zip",
     "start": "wp-scripts start",
     "build": "wp-scripts build"
   },
+  "files": [ "**/*.php", "vendor", "build" ],
   "author": "omar.serrano@automattic.com",
   "license": "MIT",
   "devDependencies": {
