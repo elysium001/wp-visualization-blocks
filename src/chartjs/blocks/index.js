@@ -10,7 +10,7 @@ import {
 } from '@wordpress/block-editor';
 import { TextControl } from '@wordpress/components';
 
-import '../views/bar'
+import { ChartJSBarChart } from '../components/bar';
 
 // Register the block
 registerBlockType('wp-visualization-plugins/chartjs-bar-block', {
@@ -35,7 +35,7 @@ registerBlockType('wp-visualization-plugins/chartjs-bar-block', {
                 </div>
             </InspectorControls>
             <p>{title}</p>
-            <chartjs-bar />
+            <ChartJSBarChart />
         </div>)
     },
     save: () => null,

@@ -1,48 +1,11 @@
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts';
 
-const data = [
-  {
-    "name": "Page A",
-    "uv": 4000,
-    "pv": 2400
-  },
-  {
-    "name": "Page B",
-    "uv": 3000,
-    "pv": 1398
-  },
-  {
-    "name": "Page C",
-    "uv": 2000,
-    "pv": 9800
-  },
-  {
-    "name": "Page D",
-    "uv": 2780,
-    "pv": 3908
-  },
-  {
-    "name": "Page E",
-    "uv": 1890,
-    "pv": 4800
-  },
-  {
-    "name": "Page F",
-    "uv": 2390,
-    "pv": 3800
-  },
-  {
-    "name": "Page G",
-    "uv": 3490,
-    "pv": 4300
-  }
-]
-
-function BarChartRender(props) {
+export function BarChartRender(props) {
+  
   return <>
     <h3>{props?.title}</h3>
     <ResponsiveContainer width="100%" height={250}>
-      <BarChart  data={data}>
+      <BarChart  data={props?.data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
@@ -55,22 +18,20 @@ function BarChartRender(props) {
   </>;
 }
 
-const customBarChartStyle = document.createElement('customBarChartStyle');
-customBarChartStyle.innerHTML = `
-  <style>
-    recharts-bar {
-      display: block;
-    }
-  </style>`;
-
 export class ReChartsBarChart extends HTMLElement {
-  connectedCallback() {
-    const mountPoint = document.createElement('div');
-    // this.attachShadow({ mode: 'open' }).appendChild(mountPoint);
-    this.appendChild(customBarChartStyle);
-    this.appendChild(mountPoint);
 
-    const root = ReactDOM.createRoot(mountPoint);
-    root.render(<BarChartRender {...this.props}></BarChartRender>);
+  connectedCallback() {
+
+    this.style.display = 'block';
+
+    // get data from attribute
+    const data = this.getAttribute('data');
+
+    // if data is json string, parse it
+    const d = typeof data === 'string' ? JSON.parse(data) : data;
+
+    const root = ReactDOM.createRoot( this );
+    root.render(<BarChartRender data={d}></BarChartRender>);
   }
+
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import * as d3 from 'd3';
 
 
-export default class D3BarChart extends Component {
+export class D3BarChart extends Component {
     constructor(props) {
         super(props)
         this.myReference = React.createRef();
@@ -77,22 +77,18 @@ export default class D3BarChart extends Component {
     }
 }
 
-const customBarChartStyle = document.createElement('customBarChartStyle');
-customBarChartStyle.innerHTML = `
-  <style>
-    d3-bar {
-      display: block;
-    }
-  </style>`;
 
 export class D3BarChartComponent extends HTMLElement {
   connectedCallback() {
-    const mountPoint = document.createElement('div');
-    // this.attachShadow({ mode: 'open' }).appendChild(mountPoint);
-    this.appendChild(customBarChartStyle);
-    this.appendChild(mountPoint);
+    this.style.display = 'block';
 
-    const root = ReactDOM.createRoot(mountPoint);
-    root.render(<D3BarChart {...this.props}></D3BarChart>);
+    // get data from attribute
+    const data = this.getAttribute('data');
+
+    // if data is json string, parse it
+    const d = typeof data === 'string' ? JSON.parse(data) : data;
+
+    const root = ReactDOM.createRoot(this);
+    root.render(<D3BarChart></D3BarChart>);
   }
 }

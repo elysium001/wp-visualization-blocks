@@ -50,29 +50,25 @@ export const data = {
   ],
 };
 
-function ChartJSBarChart(props) {
+export function ChartJSBarChart(props) {
   return <>
     <h3>{props?.title}</h3>
     <Bar options={options} data={data} />
   </>;
 }
 
-const customBarChartStyle = document.createElement('customBarChartStyle');
-customBarChartStyle.innerHTML = `
-  <style>
-    chartjs-bar {
-      display: block;
-    }
-  </style>`;
-
 export class ChartJSBarChartComponent extends HTMLElement {
   connectedCallback() {
-    const mountPoint = document.createElement('div');
-    // this.attachShadow({ mode: 'open' }).appendChild(mountPoint);
-    this.appendChild(customBarChartStyle);
-    this.appendChild(mountPoint);
+    this.style.display = 'block';
 
-    const root = ReactDOM.createRoot(mountPoint);
-    root.render(<ChartJSBarChart {...this.props}></ChartJSBarChart>);
+    // get data from attribute
+    const data = this.getAttribute('data');
+    const title = this.getAttribute('data-title');
+
+    // if data is json string, parse it
+    const d = typeof data === 'string' ? JSON.parse(data) : data;
+
+    const root = ReactDOM.createRoot(this);
+    root.render(<ChartJSBarChart data={d} title={title}></ChartJSBarChart>);
   }
 }

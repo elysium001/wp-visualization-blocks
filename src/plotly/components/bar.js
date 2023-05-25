@@ -1,7 +1,7 @@
 import Plot from 'react-plotly.js';
 
 
-function PlotlyBarFn() {
+export function PlotlyBarFn() {
 
   return (
     <Plot
@@ -29,22 +29,17 @@ function PlotlyBarFn() {
   );
 }
 
-const customBarChartStyle = document.createElement('customBarChartStyle');
-customBarChartStyle.innerHTML = `
-  <style>
-  plotly-bar {
-      display: block;
-    }
-  </style>`;
-
 export class PlotlyBarChartComponent extends HTMLElement {
   connectedCallback() {
-    const mountPoint = document.createElement('div');
-    // this.attachShadow({ mode: 'open' }).appendChild(mountPoint);
-    this.appendChild(customBarChartStyle);
-    this.appendChild(mountPoint);
+    this.style.display = 'block';
 
-    const root = ReactDOM.createRoot(mountPoint);
-    root.render(<PlotlyBarFn {...this.props}></PlotlyBarFn>);
+    // get data from attribute
+    const data = this.getAttribute('data');
+
+    // if data is json string, parse it
+    const d = typeof data === 'string' ? JSON.parse(data) : data;
+
+    const root = ReactDOM.createRoot(this);
+    root.render(<PlotlyBarFn data={d}></PlotlyBarFn>);
   }
 }

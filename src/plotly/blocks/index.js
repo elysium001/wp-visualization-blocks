@@ -3,7 +3,7 @@
  */
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps } from '@wordpress/block-editor';
-import '../views/bar';
+import { PlotlyBarFn } from '../components/bar';
 
 // Register the block
 registerBlockType( 'wp-visualization-plugins/plotly-bar-block', {
@@ -12,7 +12,7 @@ registerBlockType( 'wp-visualization-plugins/plotly-bar-block', {
             <p> Hello world (PlotlyBarChart component from the editor)</p>
 
             {/* Account for render cb implementation. */}
-            <plotly-bar />
+            <PlotlyBarFn />
         </div>;
     },
     save: () => null,

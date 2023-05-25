@@ -4,7 +4,7 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps } from '@wordpress/block-editor';
 
-import '../views/bar';
+import { D3BarChart } from '../components/bar';
 
 // Register the block
 registerBlockType( 'wp-visualization-plugins/d3-block', {
@@ -13,7 +13,7 @@ registerBlockType( 'wp-visualization-plugins/d3-block', {
             <p> Hello world (D3JS component, from the editor)</p>
 
             {/* Account for render cb implementation. */}
-            <d3-bar />
+            <D3BarChart />
         </div>;
     },
     save: () => null,
