@@ -24,4 +24,4 @@ jobs:
           
     - name: Run vip go ci
       run: |
-          ./vip-go-ci.php --repo-owner=$GITHUB_ACTOR --repo-name=$GITHUB_REPOSITORY --commit=$GITHUB_SHA --token={secrets.MY_GH_TOKEN} --local-git-repo=$GITHUB_WORKSPACE --phpcs-path=/usr/bin/php8.1 --phpcs=true --lint=true --autoapprove=true --autoapprove-filetypes=File-Types --autoapprove-label=[Status] Auto Approved --informational-msg=`Informational-Msg
+          ~/vip-go-ci-tools/vip-go-ci/vip-go-ci.php --repo-owner=$GITHUB_ACTOR --repo-name=$GITHUB_REPOSITORY --commit=$GITHUB_SHA --token={secrets.MY_GH_TOKEN} --local-git-repo=$GITHUB_WORKSPACE --phpcs-path=/usr/bin/php8.1 --phpcs=true --lint=true --autoapprove=true --autoapprove-filetypes=File-Types --autoapprove-label=[Status] Auto Approved --informational-msg=o cool
