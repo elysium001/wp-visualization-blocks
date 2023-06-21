@@ -19,7 +19,7 @@ jobs:
       run: |
           git clone https://github.com/Automattic/vip-go-ci.git ~/vip-go-ci-tools/vip-go-ci
           if [ -d ~/vip-go-ci-tools ] ; then
-            bash ~/vip-go-ci-tools/vip-go-ci/tools-init.sh
+            echo "~/vip-go-ci-tools already exists. skipping"
           else
             wget https://raw.githubusercontent.com/Automattic/vip-go-ci/latest/tools-init.sh -O tools-init.sh && \
             bash tools-init.sh && \
