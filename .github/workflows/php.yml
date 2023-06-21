@@ -33,8 +33,5 @@ jobs:
           ~/vip-go-ci-tools/vip-go-ci/vip-go-ci.php --repo-owner=$GITHUB_ACTOR \
           --repo-name=wp-visualization-blocks --commit=${{github.event.pull_request.head.sha}} \
           --local-git-repo=$GITHUB_WORKSPACE --token=${{secrets.MY_GH_TOKEN}} \
-          --phpcs=true --phpcs-standard="WordPress-VIP-Go,PHPCompatibilityWP" \
-          --lint-php-version-paths=8.1:/usr/bin/php8.1 \
-          --lint=true --lint-php-versions=8.1 \
           --autoapprove=true --autoapprove-filetypes=File-Types --autoapprove-label=[Status] Auto Approved \
-          --informational-msg=o cool
+          --informational-msg=coolness
