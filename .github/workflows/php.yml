@@ -1,0 +1,27 @@
+name: vip go ci test
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup vip go ci
+      run: |
+          git clone https://github.com/Automattic/vip-go-ci.git ~/vip-go-ci-tools/vip-go-ci
+          wget https://raw.githubusercontent.com/Automattic/vip-go-ci/latest/tools-init.sh -O tools-init.sh && \
+          bash tools-init.sh && \
+          rm -f tools-init.sh
+          
+    - name: Run vip go ci
+      run: |
+          ./vip-go-ci.php --repo-owner=$GITHUB_ACTOR --repo-name=$GITHUB_REPOSITORY --commit=$GITHUB_SHA --token={secrets.MY_GH_TOKEN} --local-git-repo=$GITHUB_WORKSPACE --phpcs-path=/usr/bin/php8.1 --phpcs=true --lint=true --autoapprove=true --autoapprove-filetypes=File-Types --autoapprove-label=[Status] Auto Approved --informational-msg=`Informational-Msg
