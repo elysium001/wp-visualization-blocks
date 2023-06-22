@@ -1,20 +1,22 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-import {ReChartsBarChart} from '../components/bar';
+import { BarRechartReactComponent } from '../components/bar';
 
+export class BarRechartWebComponent extends HTMLElement {
 
-// on dom ready.
-// document.addEventListener('DOMContentLoaded', () => {
-//     // get the root element.
-//     const root = document.getElementById('recharts-bar-root');
-    
-//     // get props from the root element.
-//     const props = Object.assign({}, root?.dataset);
-    
-//     const element = <ReChartsBarChart {...props}/>;
+    connectedCallback() {
 
-//     // render the element.
-//     ReactDOM.render(element, root);
-// }   );
+        this.style.display = 'block';
 
-customElements.define('recharts-bar', ReChartsBarChart);
+        // get data from attribute.
+        const data = this.getAttribute('data');
+        const title = this.getAttribute('data-title');
+
+        // if data is json string, parse it.
+        const d = typeof data === 'string' ? JSON.parse(data) : data;
+
+        const root = ReactDOM.createRoot(this);
+        root.render(<BarRechartReactComponent data={d} title={title}></BarRechartReactComponent>);
+    }
+
+}
+
+customElements.define('recharts-bar', BarRechartWebComponent);

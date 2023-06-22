@@ -10,7 +10,7 @@ import {
 import { TextControl, ComboboxControl } from '@wordpress/components';
 
 // import '../views/bar';
-import { BarChartRender } from '../components/bar';
+import { BarRechartReactComponent } from '../components/bar';
 
 // data fetch...
 let data1 = [
@@ -122,7 +122,7 @@ registerBlockType('wp-visualization-plugins/recharts-bar-block', {
                 </div>
             </InspectorControls>
             <p>{title}</p>
-            <BarChartRender title={title} data={data}></BarChartRender>
+            <BarRechartReactComponent title={title} data={data}></BarRechartReactComponent>
         </div>)
     },
     save: () => null,
