@@ -1,0 +1,38 @@
+name: vip go ci test
+
+on:
+  pull_request:
+      types: [opened, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+
+    - name: Setup vip go ci
+      run: |
+          git clone https://github.com/Automattic/vip-go-ci.git ~/vip-go-ci-tools/vip-go-ci
+          if [ -d ~/vip-go-ci-tools ] ; then
+            echo "~/vip-go-ci-tools already exists. skipping"
+          else
+            wget https://raw.githubusercontent.com/Automattic/vip-go-ci/latest/tools-init.sh -O tools-init.sh && \
+            bash tools-init.sh && \
+            rm -f tools-init.sh
+          fi
+          
+    - name: Run vip go ci
+      run: |
+          ~/vip-go-ci-tools/vip-go-ci/vip-go-ci.php --repo-owner=$GITHUB_ACTOR \
+          --repo-name=wp-visualization-blocks --commit=${{github.event.pull_request.head.sha}} \
+          --lint-php-version-paths=8.1:/usr/bin/php8.1 --lint-php-versions=8.1 \
+          --local-git-repo=$GITHUB_WORKSPACE --token=${{secrets.MY_GH_TOKEN}} \
+          --informational-msg="This bot provides automated PHP Linting and PHPCS scanning, read more [here.](https://github.com/automattic/vip-go-ci/)" \
+          --autoapprove=true --autoapprove-filetypes=CSS,PDF --autoapprove-label="[Status] Auto Approved" \
