@@ -19,17 +19,11 @@ jobs:
 
     - name: Setup vip go ci
       run: |
-          git clone https://github.com/Automattic/vip-go-ci.git ~/vip-go-ci-tools/vip-go-ci
           if [ -d ~/vip-go-ci-tools ] ; then
-            echo $HOME
-            echo $HOME
-            echo $HOME
-            echo "~/vip-go-ci-tools already exists. skipping"
-          else
-            wget https://raw.githubusercontent.com/Automattic/vip-go-ci/latest/tools-init.sh -O tools-init.sh && \
-            bash tools-init.sh && \
-            rm -f tools-init.sh
+            rm -rf ~/vip-go-ci-tools
           fi
+          git clone https://github.com/Automattic/vip-go-ci.git ~/vip-go-ci-tools/vip-go-ci
+          bash ~/vip-go-ci-tools/vip-go-ci/tools-init.sh
           
     - name: Run vip go ci
       run: |
