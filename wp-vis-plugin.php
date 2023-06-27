@@ -35,4 +35,5 @@ add_action('init', function () {
     new Plotly_Block();
     new ChartJS_Block();
     new ReCharts_Block();
+    echo 'test';
 });
