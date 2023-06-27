@@ -21,6 +21,9 @@ jobs:
       run: |
           git clone https://github.com/Automattic/vip-go-ci.git ~/vip-go-ci-tools/vip-go-ci
           if [ -d ~/vip-go-ci-tools ] ; then
+            echo $HOME
+            echo $HOME
+            echo $HOME
             echo "~/vip-go-ci-tools already exists. skipping"
           else
             wget https://raw.githubusercontent.com/Automattic/vip-go-ci/latest/tools-init.sh -O tools-init.sh && \
@@ -33,8 +36,8 @@ jobs:
           ~/vip-go-ci-tools/vip-go-ci/vip-go-ci.php --repo-owner=$GITHUB_ACTOR \
           --repo-name=wp-visualization-blocks --commit=${{github.event.pull_request.head.sha}} \
           --lint-php-version-paths=8.1:/usr/bin/php8.1 --lint-php-versions=8.1 \
-          --phpcs=true --lint=true --phpcs-path="/home/runner/vip-go-ci-tools/phpcs/bin/phpcs" \
-          --phpcs-standard="WordPress-VIP-Go,PHPCompatibilityWP" \
+          --phpcs-path=$HOME/vip-go-ci-tools/phpcs/bin/phpcs --phpcs=true --lint=true \
+          --phpcs-standard="WordPress-VIP-Go,PHPCompatibilityWP" --ignore="vendor/*" \
           --phpcs-sniffs-exclude="WordPress.WP.PostsPerPage.posts_per_page_posts_per_page" \
           --phpcs-sniffs-include="WordPress.DB.DirectDatabaseQuery" --phpcs-severity=1 \
           --local-git-repo=$GITHUB_WORKSPACE --token=${{secrets.MY_GH_TOKEN}} \
