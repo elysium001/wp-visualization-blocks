@@ -23,7 +23,12 @@ jobs:
             rm -rf ~/vip-go-ci-tools
           fi
           git clone https://github.com/Automattic/vip-go-ci.git ~/vip-go-ci-tools/vip-go-ci
-          bash ~/vip-go-ci-tools/vip-go-ci/tools-init.sh
+          
+          if bash ~/vip-go-ci-tools/vip-go-ci/tools-init.sh; then
+            echo "installed tools..."
+          else
+            echo "tools already updated..."
+          fi
           
     - name: Run vip go ci
       run: |
