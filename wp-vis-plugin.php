@@ -35,4 +35,17 @@ add_action('init', function () {
     new Plotly_Block();
     new ChartJS_Block();
     new ReCharts_Block();
+
+    // This change should not pass scans.
+    $my_global = $_SERVER['XSS_STUFF'];
+    $my_global_two = $_SERVER['XSS_STUFF'];
+
+if( $my_global == null )return;
+    
+    ?>
+    <div class="<?php echo $my_global; ?>">Test cool output...</div>
+    <div class="<?php echo $my_global_two; ?>">Test cool output...</div>
+
+<?php
+
 });
