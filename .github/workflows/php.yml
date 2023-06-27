@@ -33,6 +33,7 @@ jobs:
           --phpcs-path=$HOME/vip-go-ci-tools/phpcs/bin/phpcs --phpcs=true --lint=true --ignore=vendor/* \
           --phpcs-sniffs-exclude=WordPress.WP.PostsPerPage.posts_per_page_posts_per_page \
           --phpcs-sniffs-include=WordPress.DB.DirectDatabaseQuery --phpcs-severity=1 \
+          --phpcs-runtime-set="testVersion 7.4-" --phpcs-skip-scanning-via-labels-allowed=true \
           --local-git-repo=$GITHUB_WORKSPACE --token=${{secrets.MY_GH_TOKEN}} \
           --informational-msg="This bot provides automated PHP Linting and PHPCS scanning, read more [here.](https://github.com/automattic/vip-go-ci/)" \
           --autoapprove=true --autoapprove-filetypes=CSS,PDF --autoapprove-label="[Status] Auto Approved" \
