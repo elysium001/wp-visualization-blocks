@@ -40,12 +40,12 @@ jobs:
           --phpcs-path=$HOME/vip-go-ci-tools/phpcs/bin/phpcs \
           --phpcs=true \
           --lint=true \
-          --phpcs-standard="WordPress-VIP-Go,PHPCompatibilityWP" \
+          --phpcs-standard='WordPress-VIP-Go,PHPCompatibilityWP' \
           --ignore=vendor/* \
           --phpcs-sniffs-exclude=WordPress.WP.PostsPerPage.posts_per_page_posts_per_page \
           --phpcs-sniffs-include=WordPress.DB.DirectDatabaseQuery \
           --phpcs-severity=1 \
-          --phpcs-runtime-set="testVersion 7.4-" \
+          --phpcs-runtime-set='testVersion 7.4-' \
           --phpcs-skip-scanning-via-labels-allowed=true \
           --local-git-repo=$GITHUB_WORKSPACE \
           --token=${{secrets.MY_GH_TOKEN}} \
