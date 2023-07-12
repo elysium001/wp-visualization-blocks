@@ -3,7 +3,7 @@ import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, Responsive
 export function BarRechartReactComponent(props) {
   
   return <>
-    <h3>{props?.title}</h3>
+    <p>{props?.title}</p>
     <ResponsiveContainer width="100%" height={250}>
       <BarChart  data={props?.data}>
         <CartesianGrid strokeDasharray="3 3" />

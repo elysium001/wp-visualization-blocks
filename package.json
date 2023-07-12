@@ -17,12 +17,17 @@
     "start": "wp-scripts start",
     "build": "wp-scripts build"
   },
-  "files": [ "**/*.php", "vendor", "build" ],
+  "files": [
+    "**/*.php",
+    "vendor",
+    "build"
+  ],
   "author": "omar.serrano@automattic.com",
   "license": "MIT",
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
-    "@wordpress/scripts": "^26.3.0"
+    "@wordpress/scripts": "^26.3.0",
+    "browser-sync-webpack-plugin": "^2.3.0"
   },
   "dependencies": {
     "chart.js": "^4.3.0",
