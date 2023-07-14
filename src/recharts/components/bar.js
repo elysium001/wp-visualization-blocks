@@ -1,7 +1,7 @@
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts';
 
 export function BarRechartReactComponent(props) {
-  
+  console.log('BarRechartReactComponent', props); // eslint-disable-line no-console
   return <>
     <p>{props?.title}</p>
     <ResponsiveContainer width="100%" height={250}>

@@ -5,7 +5,7 @@
     "keywords": [ "fantastic" ],
     "category": "layout",
     "icon": "universal-access-alt",
-    "editorScript": "file:./../../build/d3-index.js",
-    "viewScript": [ "file:./../../build/d3-view.js", "d3-component-view-script" ],
+    "editorScript": "file:./blocks/index.js",
+    "viewScript": [ "file:./views/bar.js", "d3-component-view-script" ],
     "render": "file:./render-cb.php"
 }

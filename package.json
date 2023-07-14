@@ -14,11 +14,11 @@
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "plugin-zip": "wp-scripts plugin-zip",
     "start:hot": "wp-scripts start --hot",
-    "start": "wp-scripts start",
-    "build": "wp-scripts build"
+    "start": "wp-scripts start --webpack-copy-php --webpack-src-dir=src --output-path=build",
+    "build": "wp-scripts build --webpack-copy-php --webpack-src-dir=src --output-path=build"
   },
   "files": [
-    "**/*.php",
+    "*.php",
     "vendor",
     "build"
   ],

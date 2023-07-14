@@ -10,7 +10,7 @@
     "license": "MIT",
     "autoload": {
 		"classmap": [
-			"src/"
+			"build/"
 		]
 	},
     "autoload-dev": {

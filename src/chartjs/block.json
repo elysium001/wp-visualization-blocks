@@ -5,7 +5,7 @@
     "keywords": [ "fantastic" ],
     "category": "layout",
     "icon": "universal-access-alt",
-    "editorScript": "file:./../../build/chartjs-index.js",
-    "viewScript": [ "file:./../../build/chartjs-view.js", "chartjs-component-view-script" ],
+    "editorScript": "file:./blocks/index.js",
+    "viewScript": [ "file:./views/bar.js", "chartjs-component-view-script" ],
     "render": "file:./render-cb.php"
 }

@@ -11,4 +11,5 @@ class ReCharts_Block
 	{
 		\register_block_type(__DIR__);
 	}
+
 }

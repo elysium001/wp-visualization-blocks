@@ -5,7 +5,7 @@
     "keywords": [ "fantastic" ],
     "category": "layout",
     "icon": "universal-access-alt",
-    "editorScript": "file:./../../build/plotly-index.js",
-    "viewScript": [ "file:./../../build/plotly-view.js", "plotly-component-view-script" ],
+    "editorScript": "file:./blocks/index.js",
+    "viewScript": [ "file:./views/bar.js", "plotly-component-view-script" ],
     "render": "file:./render-cb.php"
 }

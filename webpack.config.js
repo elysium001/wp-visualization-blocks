@@ -7,20 +7,6 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 // extend wp-scripts config
 module.exports = {
     ...wpConfig,
-    entry: {
-        'd3-index': './src/d3/index.js',
-        'd3-view': './src/d3/views/bar.js',
-        'plotly-index': './src/plotly/index.js',
-        'plotly-view': './src/plotly/views/bar.js',
-        'chartjs-index': './src/chartjs/index.js',
-        'chartjs-view': './src/chartjs/views/bar.js',
-        'recharts-index': './src/recharts/index.js',
-        'recharts-view': './src/recharts/views/bar.js',
-    },
-    output: {
-        ...wpConfig.output,
-        filename: '[name].js',
-    },
     plugins: [
         ...wpConfig.plugins,
   
